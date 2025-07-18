@@ -46,9 +46,9 @@ const ResultImage: React.FC<ResultImageProps> = ({ originalImageURL, palette, as
     for (let i = 0; i < assignments.length; i++) {
       const color = palette[assignments[i]];
       if (color) {
-        imageData.data[i * 4] = color[0];
-        imageData.data[i * 4 + 1] = color[1];
-        imageData.data[i * 4 + 2] = color[2];
+        imageData.data[i * 4] = color.r;
+        imageData.data[i * 4 + 1] = color.g;
+        imageData.data[i * 4 + 2] = color.b;
         imageData.data[i * 4 + 3] = 255;
       }
     }

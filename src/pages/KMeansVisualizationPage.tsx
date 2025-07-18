@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import Scene3D from '../components/Scene3D';
 import ControlPanel from '../components/ControlPanel';

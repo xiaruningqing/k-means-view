@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Points, PointMaterial } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import styled from 'styled-components';
@@ -67,7 +67,7 @@ const KmeansPointCloud = ({ pixelColors, centroids, assignments, isClustering }:
   }, [centroids]);
 
   // The animation logic, running on every frame.
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!pointsRef.current?.geometry?.attributes?.position) return;
 
     const shouldAnimateToCentroids = !isClustering && assignments.length > 0;
