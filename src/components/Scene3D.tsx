@@ -95,8 +95,8 @@ const KmeansPointCloud = ({ pixelColors, centroids, assignments, isClustering }:
       const targetPoint = new THREE.Vector3(...targetPos);
 
       // Smoothly interpolate (lerp) towards the target position.
-      // Adjust the final multiplier (e.g., delta * 5) to change the animation speed.
-      currentPoint.lerp(targetPoint, delta * 3.0);
+      // Adjust the final multiplier (e.g., delta * 1.0) to change the animation speed.
+      currentPoint.lerp(targetPoint, delta * 1.0);
       currentPosAttr.setXYZ(i, currentPoint.x, currentPoint.y, currentPoint.z);
     }
     currentPosAttr.needsUpdate = true;

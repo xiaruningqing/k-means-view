@@ -5,6 +5,7 @@ import ControlPanel from '../components/ControlPanel';
 import { useKMeans } from '../hooks/useKMeans';
 import ResultDisplay from '../components/ResultDisplay';
 import ImageUploader from '../components/ImageUploader';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const formatCentroidsForDisplay = (flatCentroids: number[]): number[][] => {
   const nestedCentroids: number[][] = [];
@@ -74,16 +75,18 @@ const KMeansVisualizationPage = () => {
     <Container>
       <MainContent>
         <CanvasWrapper>
-          {pixelColors && pixelColors.length > 0 ? (
-            <Scene3D 
-              pixelColors={pixelColors}
-              centroids={centroids}
-              assignments={result?.assignments || []}
-              isClustering={isClustering}
-            />
-          ) : (
-            <Placeholder>Please upload an image to begin.</Placeholder>
-          )}
+          <ErrorBoundary>
+            {pixelColors && pixelColors.length > 0 ? (
+              <Scene3D 
+                pixelColors={pixelColors}
+                centroids={centroids}
+                assignments={result?.assignments || []}
+                isClustering={isClustering}
+              />
+            ) : (
+              <Placeholder>Please upload an image to begin.</Placeholder>
+            )}
+          </ErrorBoundary>
         </CanvasWrapper>
         
         {result && !isClustering && (

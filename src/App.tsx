@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import KMeansVisualizationPage from './pages/KMeansVisualizationPage';
 import IntroductionPage from './pages/IntroductionPage';
 import VideoCenterPage from './pages/VideoCenterPage';
@@ -27,7 +27,7 @@ const AppContainer = styled.div`
 
 function App() {
   return (
-    <Router>
+    <>
        <GlobalStyle />
        <AppContainer>
         <Navbar />
@@ -37,7 +37,7 @@ function App() {
           <Route path="/video-center" element={<VideoCenterPage />} />
         </Routes>
       </AppContainer>
-    </Router>
+    </>
   );
 }
 
